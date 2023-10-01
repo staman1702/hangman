@@ -1,5 +1,5 @@
-"""import gspread
-from google.oauth2.service_account import Credentials"""
+import gspread
+from google.oauth2.service_account import Credentials
 import random
 
 SCOPE = [
@@ -8,10 +8,10 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-"""CREDS = Credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('hangman')"""
+SHEET = GSPREAD_CLIENT.open('hangman')
 
 errors = 7
 guesses = []
@@ -21,8 +21,11 @@ def get_random_word():
     """
     Collects all the words in our sheet and 
     selects one random word to return.
-    """        
-    words = ["canal", "mango" , "fruit", "banana", "brain", "google"]
+    """   
+    wordsSheet = SHEET.worksheet("words")
+
+    # all our words are in first column of our google sheet
+    words = wordsSheet.col_values(1)  
 
     # getting random word
     word = random.choice(words)
