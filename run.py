@@ -66,7 +66,7 @@ def play_game(word, guesses, errors, gameOver):
 def validate_data(value, guesses):
     """    
     Raises ValueError if values are not aphabetical characters,
-    have been already used in guesses or are longer then 1.
+    have been already used in guesses or are longer than 1.
     """
     try:
         if value in guesses:
