@@ -31,6 +31,7 @@ def get_random_word():
     word = random.choice(words)
     
     return word
+    
 
 def play_game(word, guesses, errors, game_over):
     """
@@ -38,14 +39,8 @@ def play_game(word, guesses, errors, game_over):
     plays the game until the complete word is guessed or allowed errors go down to 0
     """
     
-    while not game_over:
-        for letter in word:
-            if letter.lower() in guesses:
-                print(letter, end=" ")
-            else:
-                print("_", end=" ")
-        print("")
-
+    while not game_over:        
+        dashed_word(word, guesses)
         guess = input(f"Errors remaining: {errors}, type your guess: ")
         if validate_data(guess, guesses):
             guesses.append(guess.lower())
@@ -90,6 +85,14 @@ def validate_data(value, guesses):
 
     return True
 
+
+def dashed_word(word, guesses):
+    for letter in word:
+        if letter.lower() in guesses:
+            print(letter, end=" ")
+        else:
+            print("_", end=" ")
+    print("")
 
 
 def main():
