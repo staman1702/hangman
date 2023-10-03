@@ -38,13 +38,14 @@ def get_random_word():
     return word
 
 
-def play_game(word, guesses, errors, game_over):
+def play_round(guesses, errors, game_over):
     """
     Receives the word, 0 guesses, 7 errors and false game_over,
     plays the game until the complete word is guessed or allowed errors go down to 0
     """
     
     game_intro_text()
+    word = get_random_word()
     while not game_over:        
         dashed_word(word, guesses)
         guess = input(f"Errors remaining: {errors}, type your guess: ")
@@ -110,30 +111,44 @@ def dashed_word(word, guesses):
 
 
 def game_intro_text():
-    print("\n")
-    print("******************************")
+    print("\n******************************")
     print("***Welcome to Hangman game.***")
     print("******************************")
     print("\n")
 
 
-def game_over_text():
-    print("\n")
-    print("******************************")
+def game_over_text():    
+    print("\n******************************")
     print("**********Game Over.**********")
     print("******************************")
     print("\n")
 
 
+def initialize_game():
+
+    keep_playing = True
+
+    while keep_playing:
+        errors = 7
+        game_over = False
+        guesses = []
+
+        play_round(guesses, errors, game_over)
+
+        keep_playing_response = input(
+            "\nWould you like to play again? "
+            "Y for yes, anything else for No."
+        ).strip().lower()
+
+        keep_playing = (keep_playing_response == 'y')
+
+    print("\nThank you for playing, good bye!")
+
 def main():
     """
     Run all program functions
-    """
-    errors = 7
-    game_over = False
-    guesses = [] 
-    word = get_random_word()
-    play_game(word, guesses, errors, game_over)
+    """       
+    initialize_game()
     
 
 main()
