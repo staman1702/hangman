@@ -170,7 +170,7 @@ def initialize_game():
 
         keep_playing_response = input(
             "\nWould you like to play again? "
-            "Y for yes, anything else for No."
+            "Y for yes, anything else for No. "
         ).strip().lower()
 
         keep_playing = (keep_playing_response == 'y')
