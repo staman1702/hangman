@@ -31,7 +31,7 @@ def get_random_word():
     word = random.choice(words)
     
     return word
-    
+
 
 def play_game(word, guesses, errors, game_over):
     """
@@ -87,6 +87,11 @@ def validate_data(value, guesses):
 
 
 def dashed_word(word, guesses):
+    """
+    Function takes variable 'word' and 'guesses' list to 
+    displays word using dashes and reveals any guessed letter that 
+    player inputs. 
+    """
     for letter in word:
         if letter.lower() in guesses:
             print(letter, end=" ")
