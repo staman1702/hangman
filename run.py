@@ -15,30 +15,30 @@ SHEET = GSPREAD_CLIENT.open('hangman')
 
 errors = 7
 guesses = []
-gameOver = False
+game_over = False
 
 def get_random_word():
     """
     Collects all the words in our sheet and 
     selects one random word to return.
     """   
-    wordsSheet = SHEET.worksheet("words")
+    words_sheet = SHEET.worksheet("words")
 
     # all our words are in first column of our google sheet
-    words = wordsSheet.col_values(1)  
+    words = words_sheet.col_values(1)  
 
     # getting random word
     word = random.choice(words)
     
     return word
 
-def play_game(word, guesses, errors, gameOver):
+def play_game(word, guesses, errors, game_over):
     """
-    Receives the word, 0 guesses, 7 errors and false gameOver,
+    Receives the word, 0 guesses, 7 errors and false game_over,
     plays the game until the complete word is guessed or allowed errors go down to 0
     """
-    print(word)
-    while not gameOver:
+    
+    while not game_over:
         for letter in word:
             if letter.lower() in guesses:
                 print(letter, end=" ")
@@ -54,13 +54,13 @@ def play_game(word, guesses, errors, gameOver):
                 if errors == 0:
                     break
 
-        gameOver = True
+        game_over = True
 
         for letter in word:
             if letter.lower() not in guesses:
-                gameOver = False
+                game_over = False
 
-    if gameOver:
+    if game_over:
         print(f"You Won! The word was {word.upper()}.")
     else:
         print(f"You lost! The word was {word.upper()}.")
@@ -98,7 +98,7 @@ def main():
     """
     get_random_word()    
     word = get_random_word()
-    play_game(word, guesses, errors, gameOver)
+    play_game(word, guesses, errors, game_over)
     
 
 print("Welcome to Hangman game.")
