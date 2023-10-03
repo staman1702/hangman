@@ -13,9 +13,6 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman')
 
-errors = 7
-guesses = []
-game_over = False
 
 def get_random_word():
     """
@@ -104,11 +101,15 @@ def main():
     """
     Run all program functions
     """
+    print("Welcome to Hangman game.")
+    print("************************")
+    errors = 7
+    game_over = False
+    guesses = []
     get_random_word()    
     word = get_random_word()
     play_game(word, guesses, errors, game_over)
     
 
-print("Welcome to Hangman game.")
-print("************************")
+
 main()
