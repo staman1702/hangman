@@ -44,6 +44,7 @@ def play_game(word, guesses, errors, game_over):
     plays the game until the complete word is guessed or allowed errors go down to 0
     """
     
+    game_intro_text()
     while not game_over:        
         dashed_word(word, guesses)
         guess = input(f"Errors remaining: {errors}, type your guess: ")
@@ -128,7 +129,6 @@ def main():
     """
     Run all program functions
     """
-    game_intro_text()
     errors = 7
     game_over = False
     guesses = [] 
