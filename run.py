@@ -52,6 +52,8 @@ def play_game(word, guesses, errors, game_over):
             if letter.lower() not in guesses:
                 game_over = False
 
+    dashed_word(word, guesses)
+    game_over_text()
     if game_over:
         print(f"You Won! The word was {word.upper()}.")
     else:
@@ -91,25 +93,39 @@ def dashed_word(word, guesses):
     """
     for letter in word:
         if letter.lower() in guesses:
-            print(letter, end=" ")
+            print(letter, end=" ")            
         else:
-            print("_", end=" ")
+            print("_", end=" ")            
     print("")
+    print(" ")
+
+
+def game_intro_text():
+    print("\n")
+    print("******************************")
+    print("***Welcome to Hangman game.***")
+    print("******************************")
+    print("\n")
+
+
+def game_over_text():
+    print("\n")
+    print("******************************")
+    print("**********Game Over.**********")
+    print("******************************")
+    print("\n")
 
 
 def main():
     """
     Run all program functions
     """
-    print("Welcome to Hangman game.")
-    print("************************")
+    game_intro_text()
     errors = 7
     game_over = False
-    guesses = []
-    get_random_word()    
+    guesses = [] 
     word = get_random_word()
     play_game(word, guesses, errors, game_over)
     
-
 
 main()
