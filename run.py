@@ -19,13 +19,21 @@ def get_random_word():
     Collects all the words in our sheet and 
     selects one random word to return.
     """   
-    words_sheet = SHEET.worksheet("words")
+    try:
+        words_sheet = SHEET.worksheet("words")
 
-    # all our words are in first column of our google sheet
-    words = words_sheet.col_values(1)  
+        # all words are in first column of google sheet
+        words = words_sheet.col_values(1)  
 
-    # getting random word
-    word = random.choice(words)
+        # getting random word
+        word = random.choice(words)
+    except:
+
+        #backup words if there is any problem accessing Google spreadsheet 
+        backup_words = ["backup", "alternate" , "substitute", "auxiliary", "spare", "backing"]
+
+        #randomly select backup word
+        word = random.choice(backup_words)
     
     return word
 
