@@ -17,7 +17,11 @@ SHEET = GSPREAD_CLIENT.open('hangman')
 def get_random_word():
     """
     Collects all the words in our sheet and 
-    selects one random word to return.
+    selects one random word to return. Uses try/except
+    to avoid network or API complications without
+    breaking the game.  
+    Returns:
+        string: word that is goal of the game
     """   
     try:
         words_sheet = SHEET.worksheet("words")
@@ -41,7 +45,13 @@ def get_random_word():
 def play_round(guesses, errors, game_over):
     """
     Receives the word, 0 guesses, 7 errors and false game_over,
-    plays the game until the complete word is guessed or allowed errors go down to 0
+    plays the round until the complete word is guessed or allowed errors go down to 0
+    Args:        
+        guesses: list: all the characters that player inputed in attempt to solve win the game
+        errors: int: number of erros player made
+        game_over: bool: while False, game continues, ends game when True
+    Returns:
+        string: either victorius or loss
     """
     
     game_intro_text()
@@ -72,8 +82,12 @@ def play_round(guesses, errors, game_over):
 
 def validate_data(value, guesses):
     """    
-    Raises ValueError if values are not aphabetical characters,
-    have been already used in guesses or are longer than 1.
+    Validates the input data (guesses)
+    Args:
+        value: any type of input: player provided data
+        guesses: list: all the characters that player inputed prior to inputing 'value'
+    Returns:
+        string: if value of input does not satisfy conditions set by game
     """
     try:
         if value in guesses:
@@ -97,9 +111,15 @@ def validate_data(value, guesses):
 
 def dashed_word(word, guesses):
     """
-    Function takes variable 'word' and 'guesses' list to 
+    Take variable 'word' and 'guesses' list to 
     displays word using dashes and reveals any guessed letter that 
     player inputs. 
+
+    Args:
+        word: string: goal of the game
+        guesses: list: all the characters that player inputs in his try to reveal the word
+    Returns:
+        string: fully or partially dashed guessed word
     """
     for letter in word:
         if letter.lower() in guesses:
@@ -111,13 +131,21 @@ def dashed_word(word, guesses):
 
 
 def game_intro_text():
+    """
+    No Args.
+    Returns: strings
+    """  
     print("\n******************************")
     print("***Welcome to Hangman game.***")
     print("******************************")
     print("\n")
 
 
-def game_over_text():    
+def game_over_text():  
+    """
+    No Args.
+    Returns: strings
+    """  
     print("\n******************************")
     print("**********Game Over.**********")
     print("******************************")
@@ -126,6 +154,11 @@ def game_over_text():
 
 def initialize_game():
 
+    """
+    Initializes game, and after complition of 
+    the round, offers player to play again or
+    stop
+    """
     keep_playing = True
 
     while keep_playing:
