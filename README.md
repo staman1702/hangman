@@ -1,31 +1,54 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# HANGMAN
 
-Welcome USER_NAME,
+Hangman is a student-made app that lets you pass time and have some carefree fun playing simple game of hangman. 
+It's designed for single play only and declares a winner once the player guessed all the letters in mystery word. 
+The user is allowed to input one letter at time and is only permitted to input wrong letter 7 times. 
+If all letters are not revealed, game ends in a loss. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
-## Reminders
+![Responsive](assets/images/am_i_responsive.webp)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## User Experience (UX)
 
-## Creating the Heroku app
+### User stories
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+First Time Visitor Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
+- Introducing the player to well known classical game.
+- Providing simple and self-explanatory entertainment.
+- Enjoying the game of wits against randomly generated words.
+- Ability to replay the game after every round.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+Frequent User Goals
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+- Reliving the joy of the first visit.
+- Getting more skilled every time the game is played.
 
-Connect your GitHub repository and deploy as normal.
+## Features
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Word selection
 
------
-Happy coding!
+- Mystery word is selected randomly from a Google Sheet or from small backup list in case of any problems with accessing Google Sheet.
+
+
+### Game Interface
+
+- Welcome message is shown on launch, followed by fully dashed mystery word.
+- Displays number of allowed errors and ask player to input the first guess.
+- If guess is correct the letter will be revealed in its proper position in word
+- If guess is incorrect number of allowed errors will decrease by one
+- If guess is more than one character, symbol or already been input by player,
+game will notify the player and ask for new input
+
+### End of round
+- After failing or managing to solve the word game offer a player a chance to play again.
+- Decision is made by inputting "y" or "Y" to play again or any other key not to. 
+
+## Testing
+
+### Validator Testing
+
+## Deployment
+
+## Credits
