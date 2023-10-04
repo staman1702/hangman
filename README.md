@@ -50,6 +50,8 @@ game will notify the player and ask for new input
 
 ### Validator Testing
 
+- Python code was Validated using the [PEP8](https://pep8ci.herokuapp.com/).
+
 ## Deployment
 
 ## Credits
