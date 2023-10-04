@@ -44,14 +44,14 @@ def get_random_word():
 
 def play_round(guesses, errors, game_over):
     """
-    Receives the word, 0 guesses, 7 errors and false game_over,
+    Receives 0 guesses, 7 errors and false game_over, calls function ot generate random word,
     plays the round until the complete word is guessed or allowed errors go down to 0
     Args:        
-        guesses: list: all the characters that player inputed in attempt to solve win the game
-        errors: int: number of erros player made
+        guesses: list: all the characters that player has input in attempt to solve win the game
+        errors: int: number of errors player made
         game_over: bool: while False, game continues, ends game when True
     Returns:
-        string: either victorius or loss
+        string: either victorious or loss
     """
     
     game_intro_text()
@@ -85,7 +85,7 @@ def validate_data(value, guesses):
     Validates the input data (guesses)
     Args:
         value: any type of input: player provided data
-        guesses: list: all the characters that player inputed prior to inputing 'value'
+        guesses: list: all the characters that player has input prior to inputting 'value'
     Returns:
         string: if value of input does not satisfy conditions set by game
     """
