@@ -42,6 +42,7 @@ Frequent User Goals
 game will notify the player and ask for new input
 
 ### End of round
+- End of round message is displayed, along with fully revealed mystery word.
 - After failing or managing to solve the word game offer a player a chance to play again.
 - Decision is made by inputting "y" or "Y" to play again or any other key not to. 
 
