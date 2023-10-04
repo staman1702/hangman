@@ -66,6 +66,10 @@ game will notify the player and ask for new input
 
 - Python code was Validated using the [PEP8](https://pep8ci.herokuapp.com/).
 
+### Bugs solved
+
+- fixed a bug where 'guess' followed by whitespace was being registered as an error.
+
 ## Deployment
 
 - Game has been deployed to Heroku.com following these steps:

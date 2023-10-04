@@ -61,7 +61,7 @@ def play_round(guesses, errors, game_over):
     word = get_random_word()
     while not game_over:
         dashed_word(word, guesses)
-        guess = input(f"Errors remaining: {errors}, type your guess: ")
+        guess = input(f"Errors remaining: {errors}, type your guess: ").strip()
         if validate_data(guess, guesses):
             guesses.append(guess.lower())
             if guess.lower() not in word.lower():
