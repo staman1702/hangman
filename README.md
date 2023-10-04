@@ -48,6 +48,11 @@ game will notify the player and ask for new input
 
 ## Testing
 
+- Launching game: test PASSED, game launches, displays intro and generates word
+- User inputs: test PASSED, inputs are validated and used properly
+- Game ending: test PASSED, game ends after making too many mistakes or solving the word
+- Replay game: test Passed, game is successfully restarted or terminated based on players choice
+
 ### Validator Testing
 
 - Python code was Validated using the [PEP8](https://pep8ci.herokuapp.com/).
