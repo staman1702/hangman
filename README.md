@@ -49,9 +49,18 @@ game will notify the player and ask for new input
 ## Testing
 
 - Launching game: test PASSED, game launches, displays intro and generates word
-- User inputs: test PASSED, inputs are validated and used properly
-- Game ending: test PASSED, game ends after making too many mistakes or solving the word
-- Replay game: test Passed, game is successfully restarted or terminated based on players choice
+- Dashed word: test PASSED, mystery word is displayed(masked) as dashes
+- User inputs character: test PASSED, single alphabetical character inputs are recognized as a valid input
+- User inputs multiple characters at once: test PASSED, string of multiple characters are recognized as not valid inputs
+- User inputs symbols: test PASSED, non-alphabetical characters are recognized as not valid inputs
+- Word contains guessed letter: test PASSED, letter that is input by user and is in the word is displayed in it's correct position in the word
+- Word contains guessed letter in multiple positions: test PASSED, letter that is input by user and is in the word in more then one place is displayed in it's correct positions in the word
+- Outcome 1: Game ends in loss: test PASSED, game ends after making too many mistakes, appropriate message displayed
+- Outcome 2: Game ends in win: test PASSED, game ends after guessing all the letters, appropriate message displayed
+- Replay game: test PASSED, finished round is successfully restarted after inputting both upper or lower case letter 'Y', whitespace after 'Y' is ignored by the game
+- Refuse to replay game: test PASSED, after finished round, user's reply no to play again passes testing successfully
+
+[View deployed site here](https://https://ci-hangman-matija-263cf48b7d7a.herokuapp.com/)
 
 ### Validator Testing
 
@@ -59,4 +68,27 @@ game will notify the player and ask for new input
 
 ## Deployment
 
+- Game has been deployed to Heroku.com following these steps:
+
+1. Log into Heroku.com
+2. Select "Create new app"
+3. Choose name and region for the app
+4. Select "Create app"
+5. Go to "settings" tab
+6. Click "Reveal Config Vars"
+7. Add a Config Var in the Heroku settings, with the key CREDS and the value pasted from creds.json
+8. Add "python" and "nodejs" buildpack (in this order)
+
+9. Go to "deploy" tab
+10. Under deployment method select "GitHub"
+11. Search for repository to connect to
+12. Click "Connect"
+13. Go to "Manual deploy", select "main branch" and click "Deploy Branch"
+
 ## Credits
+
+- Content was created and assessed by Matija Stankovic
+
+###
+
+- Completion of an app and it's features would not have been possible without the support and advice of my mentor Brian Macharia
